@@ -22,7 +22,7 @@ export const Calculator = () => {
   return (
     <>
       <input type="text" className="form-control" value={input} readOnly />
-      <div className="row">
+      <div className="row mt-3 justify-content-center align-items-center">
         {[...Array(10).keys()].map((num) => (
           <button
             key={num}

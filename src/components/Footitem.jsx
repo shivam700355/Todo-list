@@ -10,7 +10,7 @@ export const Footitem = ({ list, setList }) => {
   };
 
   return (
-    <ul className="list-group">
+    <ul className="list-group mt-3">
       {list.map((item, index) => (
         <li key={index} className="list-group-item list-group-item-action d-flex justify-content-between align-items-center listitem">
           {item}

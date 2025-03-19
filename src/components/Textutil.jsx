@@ -23,39 +23,48 @@ export const TextUtil = () => {
     setText("");
   };
 
+  // Calculate Word Count
+  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
+  // Calculate Space Count
+  const spaceCount = (text.match(/\s/g) || []).length;
+
+  // Count Uppercase Letters
+  const uppercaseCount = (text.match(/[A-Z]/g) || []).length;
+
   return (
     <>
       <input
         type="text"
-        className="form-control"
+        className="form-control mt-3"
         value={text}
         onChange={handleInputChange}
+        placeholder="Type something..."
       />
-      <div className="row">
-        <button
-          className="btn btn-outline-primary m-2 col-3"
-          onClick={handleUppercase}
-        >
+      <div className="mt-3 justify-content-center align-items-center p-3">
+        <button className="btn btn-outline-primary p-2 m-2" onClick={handleUppercase}>
           Uppercase
         </button>
-        <button
-          className="btn btn-outline-primary m-2 col-3"
-          onClick={handleLowercase}
-        >
+        <button className="btn btn-outline-primary p-2 m-2" onClick={handleLowercase}>
           Lowercase
         </button>
-        <button
-          className="btn btn-outline-primary m-2 col-3"
-          onClick={handleCapitalize}
-        >
+        <button className="btn btn-outline-primary p-2 m-2" onClick={handleCapitalize}>
           Capitalize
         </button>
-        <button className="btn btn-outline-danger m-2 col-3" onClick={handleClear}>
+        <button className="btn btn-outline-danger p-2 m-2" onClick={handleClear}>
           Clear
         </button>
+
         <div className="mt-3">
           <h5>Output:</h5>
           <p>{text}</p>
+        </div>
+
+        {/* Displaying Counts */}
+        <div className="mt-3">
+          <h6>Word Count: {wordCount}</h6>
+          <h6>Space Count: {spaceCount}</h6>
+          <h6>Uppercase Letters: {uppercaseCount}</h6>
         </div>
       </div>
     </>
